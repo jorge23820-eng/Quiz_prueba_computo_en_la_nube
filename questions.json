@@ -1,0 +1,23 @@
+[
+  {
+    "id": "Q-C06-001",
+    "bloque": "T",
+    "q": "¿Qué servicio de AWS permite publicar un sitio estático directamente desde un repositorio de GitHub con despliegue continuo?",
+    "a": ["Amazon EC2", "AWS Amplify Hosting", "Amazon RDS", "AWS Direct Connect"],
+    "t": 30
+  },
+  {
+    "id": "Q-C06-002",
+    "bloque": "CLF",
+    "q": "Según el modelo de responsabilidad compartida, ¿quién es responsable de configurar los grupos de seguridad de una instancia EC2?",
+    "a": ["AWS", "El proveedor de internet", "El cliente", "Nadie, se configuran solos"],
+    "t": 25
+  },
+  {
+    "id": "Q-C06-003",
+    "bloque": "AIF",
+    "q": "¿Cómo se llama la técnica de dar al modelo ejemplos de entrada y salida dentro del prompt para guiar su respuesta?",
+    "a": ["Fine-tuning", "Few-shot prompting", "Cuantización", "Destilación"],
+    "t": 20
+  }
+]

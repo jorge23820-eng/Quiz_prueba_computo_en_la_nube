@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https: http://localhost:* http://127.0.0.1:*; base-uri 'none'; form-action 'none'; object-src 'none'">
+  <meta name="referrer" content="no-referrer">
+  <meta name="color-scheme" content="dark">
+  <title>Quiz</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+
+  <main id="contenido" class="shell">
+    <header class="topbar">
+      <p class="brand">Quiz</p>
+      <p class="alias" id="alias-wrap" hidden>
+        <span class="alias-label">Tu alias</span>
+        <span class="alias-value" id="alias"></span>
+      </p>
+    </header>
+
+    <section class="card" id="card" aria-label="Quiz">
+      <!-- Cargando -->
+      <div class="screen" id="screen-loading">
+        <h1 class="screen-title" id="titulo-pantalla">Cargando preguntas…</h1>
+        <p class="muted">Un momento.</p>
+      </div>
+
+      <!-- Inicio -->
+      <div class="screen" id="screen-start" hidden>
+        <h1 class="screen-title">Listo para empezar</h1>
+        <p class="lead" id="start-summary"></p>
+        <ul class="rules">
+          <li>Cada pregunta tiene su propio tiempo. Si se acaba, pasa a la siguiente sin respuesta.</li>
+          <li>Elige con clic o con las teclas <kbd>1</kbd> a <kbd>4</kbd>.</li>
+          <li>Solo cuenta tu primera respuesta: no se puede cambiar.</li>
+        </ul>
+        <div class="actions">
+          <button type="button" class="btn btn-primary" id="btn-start">Comenzar</button>
+        </div>
+      </div>
+
+      <!-- Pregunta -->
+      <div class="screen" id="screen-quiz" hidden>
+        <div class="meta">
+          <p class="counter" id="counter"></p>
+          <p class="badge" id="bloque"></p>
+          <p class="timer" id="timer" aria-label="Tiempo restante">
+            <span class="timer-icon" aria-hidden="true">⏱</span>
+            <span id="timer-value">0:00</span>
+          </p>
+        </div>
+        <div class="progress" id="progress" role="progressbar" aria-label="Progreso del quiz" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+
+        <div class="qbody" id="qbody">
+          <h2 class="question" id="question" tabindex="-1"></h2>
+          <div class="options" id="options" role="group" aria-labelledby="question"></div>
+        </div>
+
+        <div class="feedback" id="feedback" aria-live="polite" aria-atomic="true">
+          <p class="feedback-title" id="feedback-title"></p>
+          <p class="feedback-text" id="feedback-text"></p>
+        </div>
+
+        <div class="actions">
+          <button type="button" class="btn btn-ghost" id="btn-retry" hidden>Reintentar envío</button>
+          <button type="button" class="btn btn-primary" id="btn-next" hidden>Siguiente</button>
+        </div>
+      </div>
+
+      <!-- Final -->
+      <div class="screen" id="screen-final" hidden>
+        <h1 class="screen-title" id="final-title" tabindex="-1">Terminaste</h1>
+        <p class="score"><span id="final-score">0</span><span class="score-of" id="final-of"></span></p>
+        <p class="lead" id="final-message"></p>
+        <p class="muted" id="final-detail"></p>
+      </div>
+
+      <!-- Error de carga -->
+      <div class="screen" id="screen-error" hidden>
+        <h1 class="screen-title" id="error-title" tabindex="-1">No se pudo cargar el quiz</h1>
+        <p class="lead" id="error-text"></p>
+      </div>
+    </section>
+
+    <p class="footnote">Tu alias es anónimo y solo se guarda en este navegador.</p>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
